@@ -8,6 +8,7 @@ class App extends React.Component {
     super()
     this.nextPoke = this.nextPoke.bind(this);
     this.selectElementPoke = this.selectElementPoke.bind(this);
+    this.selectAllPoke = this.selectAllPoke.bind(this);
 
     this.state = {
       click: 0,
@@ -29,6 +30,12 @@ class App extends React.Component {
     })
   }
 
+  selectAllPoke() {
+    this.setState({
+      pokemons: pokemons,
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -37,6 +44,7 @@ class App extends React.Component {
         <button onClick={this.nextPoke}>Próximo {this.state.click}</button>
         <button style={{backgroundColor:'red', color: 'white'}} onClick={() => this.selectElementPoke('Fire')}>Fire</button>
         <button style={{backgroundColor:'blue', color: 'white'}} onClick={() => this.selectElementPoke('Psychic')}>Psychic</button>
+        <button onClick={this.selectAllPoke}>All</button>
       </div>
     );
   }
