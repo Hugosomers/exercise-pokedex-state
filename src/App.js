@@ -59,8 +59,8 @@ class App extends React.Component {
         <Button event={this.nextPoke} text={'Próximo'} disable={this.state.pokemons.length === 1} className={'next'} />
         {/* <Button event={() => this.selectElementPoke('Fire')} text={'Fire'}/>
         <Button event={() => this.selectElementPoke('Psychic')} text={'Psychic'}/> */}
-        <Button event={this.selectAllPoke} text={'All'}/>
-        {this.generateButtons().map(element => <Button event={() => this.selectElementPoke(element)} text={element}/>)}
+        <Button event={this.selectAllPoke} text={'All'} className={"all"}/>
+        {this.generateButtons().map(element => <Button event={() => this.selectElementPoke(element)} text={element} className={"elements"}/>)}
       </div>
     );
   }
