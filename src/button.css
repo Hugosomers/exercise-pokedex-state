@@ -1,0 +1,27 @@
+button {
+  background-color: orange;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 20px;
+  width: 5vw;
+  border-radius: 4px;
+}
+
+.next {
+  background-color: rgb(29, 172, 29);
+}
+
+.all {
+  background-color: rgb(29, 172, 172);
+}
+
+button:disabled {
+  background-color: gray;
+}
+
+.elements:hover {
+  width: 5.2vw;
+  background-color: rgb(228, 177, 82);
+  transition-timing-function: ease;
+}
