@@ -38,16 +38,29 @@ class App extends React.Component {
     })
   }
 
+  generateButtons() {
+    const types = pokemons.map(pokemon => pokemon.type);
+    console.log(types);
+    const noRepeat = types.reduce((acc, curr) => {
+      if (!acc.includes(curr)) {
+        acc.push(curr);
+      }
+      return acc;
+    }, []);
+
+   return noRepeat;
+  }
+
   render() {
     return (
       <div className="App">
         <h1> Pokedex </h1>
         <Pokedex pokemon={this.state.pokemons[this.state.click]} />
-        <Button event={this.nextPoke} text={'Próximo'}/>
-        <Button event={() => this.selectElementPoke('Fire')} text={'Fire'}/>
-        <Button event={() => this.selectElementPoke('Psychic')} text={'Psychic'}/>
+        <Button event={this.nextPoke} text={'Próximo'} disable={this.state.pokemons.length === 1} className={'next'} />
+        {/* <Button event={() => this.selectElementPoke('Fire')} text={'Fire'}/>
+        <Button event={() => this.selectElementPoke('Psychic')} text={'Psychic'}/> */}
         <Button event={this.selectAllPoke} text={'All'}/>
-        
+        {this.generateButtons().map(element => <Button event={() => this.selectElementPoke(element)} text={element}/>)}
       </div>
     );
   }
